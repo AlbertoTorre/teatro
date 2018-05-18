@@ -8,6 +8,11 @@
                   <div class="caption">
                     <h3> {{ pt.premiere.name }} </h3>
                     <p> {{ pt.premiere.detail }} </p>
+                    <p> 
+                        <b>Fecha evento</b> <br> {{ pt.date }} <br> 
+                        <b> Hora </b> <br>
+                        inicio: {{ pt.hour_initial }} -fin: {{ pt.hour_final }} 
+                    </p>
                     <button href="#" 
                             class="btn btn-primary" type="button" 
                             @click="premiereTimes[kpt]['chairVisible']=true"> 
@@ -16,6 +21,9 @@
                   </div>
                 </div>
                 <div class="thumbnail" v-show="pt.chairVisible">
+                    <div class="caption">
+                        <h4> {{ pt.premiere.name }} </h4>
+                    </div>
                     <div class="chairs">
                         <div v-for="rk in pt.chair.rows" class="rows-chair">
                             <div v-for="ck in pt.chair.columns" class="columns-chair">

@@ -24,6 +24,7 @@ class PremiereController extends Controller
  				{
  					foreach($pt as $v)
  					{
+ 							$v->reservations=[];
  							$v->premiere = Premiere::where('id', $v->premiere_id)->first();
  							$reservations = Reservation::where('premiere_time_id', $v->id)->where('active', '1')->get();
  							if( count($reservations) && $reservations !== null )
@@ -64,6 +65,7 @@ class PremiereController extends Controller
 				$r = DB::table('reservations')
                ->join('reservation_details',  'reservation_details.reservation_id', '=', 'reservations.id')
 				       ->where('reservations.premiere_time_id', $premiere_time_id)
+				       ->where('reservations.active', '1')
 				       ->select('reservation_details.row','reservation_details.column')
 				       ->get();
  			 	if( count($r) && $r !== null )
@@ -121,6 +123,9 @@ class PremiereController extends Controller
 		 			 	}
 
 		 			 	if($number_people){
+
+		 			 		
+
 		 			 		$return=['submit'=> true];
 		 			 	}
  					}

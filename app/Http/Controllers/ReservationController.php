@@ -8,6 +8,19 @@ class ReservationController extends Controller
 {
     public function index()
     {
-        return view('reservations.show');
+      return view('reservations.show');
     }
+
+    public function user(Request $request, $user_id=false)
+    {
+  		if( $request )
+  		{	
+  			
+  		}
+  		else
+  		{
+  			echo  "No es posible acceder.";
+  		}
+    }
+
 }
