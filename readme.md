@@ -9,11 +9,12 @@ To clone and run this repository you'll need [Git](https://git-scm.com) and [Nod
 
 ```bash
 # Clone this repository
-git clone https://gitlab.com/AlbertoTorre/teatro.git
+git clone https://github.com/AlbertoTorre/teatro.git
 # Go into the repository
 cd teatro
-# Install dependencies
-npm install
-# Run the app
-npm run watch
-```
+
+# Database migration:
+Primero debemos crear  la base de datos con el nombre  teatro o cualquier otro, 
+este nombre lo ponemos en el archivo .env
+
+php  artisan  migrate --seed
