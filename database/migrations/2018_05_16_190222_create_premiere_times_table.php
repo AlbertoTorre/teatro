@@ -17,7 +17,7 @@ class CreatePremiereTimesTable extends Migration
             $table->increments('id');
             $table->integer('chair_id')->unsigned();
             $table->integer('premiere_id')->unsigned();
-            $table->dateTime('date');
+            $table->date('date');
             $table->time('hour_initial');
             $table->time('hour_final');
             $table->double('ticket_price',10,2);
