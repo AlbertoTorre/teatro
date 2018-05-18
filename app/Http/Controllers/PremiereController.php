@@ -122,11 +122,17 @@ class PremiereController extends Controller
 		 					}
 		 			 	}
 
-		 			 	if($number_people){
-
-		 			 		
-
-		 			 		$return=['submit'=> true];
+		 			 	if($number_people)
+		 			 	{
+		 			 		$ru = Reservation::where('id', $r->id)->update([
+					 			 																								'number_people'=>$number_people, 
+					 			 																								'paid_price'=> ($number_people * $request->ticket_price)
+					 			 																						 ]);
+		 			 		if($ru > 0){
+		 			 			$return = ['submit'=> true];
+		 			 		}else{
+		 			 			$return = ['submit'=> false, 'msn'=> "Ocurrio un problema guardando la cantidad de personas y el precio total de pago."];
+		 			 		}
 		 			 	}
  					}
  					else
